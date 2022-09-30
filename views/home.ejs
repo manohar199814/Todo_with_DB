@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1> <%= title %></h1>
+        <form action="/" method="POST">
+            <div class="wrapper">
+                <div class="desc">
+                    <label for="desc">DESCRIPTION</label>
+                    <input type="text" name="desc" id="desc" placeholder="What do you need to do?" required>
+                </div>
+                <div class="category">
+                    <label for="category">CATEGGORY</label>
+                    <select name="pets" id="category">
+                        <option value="">Choose a Category</option>
+                        <option value="personal">Personal</option>
+                        <option value="home">Home</option>
+                        <option value="work">Work</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="school">School</option>
+                        <option value="office">Office</option>
+                    </select>
+                </div>
+                <div class="duedate">
+                    <label for="duedate">DUE DATE:</label>
+                    <input type="date" id="duedate" name="duedate" placeholder="dd/mm/yyyy" required>
+                </div>
+            </div>
+
+            <div class="add-task">
+                <button type="submit"><i class="fa-sharp fa-solid fa-plus"></i> Add Task</button>
+            </div>
+        </form>
+
+    <ul id="list">
+        <li>
+            <div class="list-desc">
+                <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
+                <label for="task1">Buy groceries</label>
+                <i class="fa-solid fa-calendar-days calender-icon"> 2022-01-02</i>
+            </div>
+            <div class="list-label"> 
+                Personal
+            </div>
+            <!-- <img src="../trash.svg" class="delete" data-id="12" /> -->
+
+            <div>
+                <i class="fa-solid fa-trash" class="delete"></i>
+            </div>
+        </li>
+
+        <li>
+            <div class="list-desc">
+                <input type="checkbox" id="task2" data-id="12" class="custom-checkbox">
+                <label for="task2">Buy groceries</label>
+                <i class="fa-solid fa-calendar-days calender-icon"> 2022-01-02</i>
+            </div>
+            <div class="list-label"> 
+                Personal
+            </div>
+            <!-- <img src="../trash.svg" class="delete" data-id="12" /> -->
+            
+            <div class="list-delete">
+                <i class="fa-solid fa-trash" class="delete"></i>
+            </div>   
+          </li>
+      </ul>
+</body>
+</html>
+

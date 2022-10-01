@@ -1,28 +1,29 @@
 const express = require('express');
-const port = 3000;
+const port = 8000;
+const bodyParser =  require('body-parser');
+
+const homeRoutes = require('./routes/home');
+
+//mconect to mongoose
+const mongoose = require('./config/mongoose');
+
 const app = express();
 
-//set view engine
+//set view engine and views folder
 app.set('view engine','ejs');
-//set views folder
 app.set('views','views');
 
 //serve static files
-app.use(express.static('./assets'))
+app.use(express.static('./assets'));
+//body parser
+app.use(bodyParser.urlencoded({extended:false}));
 
-app.get('/',(req,res) => {
-    res.render('home',{title:'TODO App'})
-});
-
-app.post('/',(req,res) => {
-    res.redirect('back')
-})
+app.use('/',homeRoutes);
 
 app.listen(port,(err) => {
     if(err){
         console.log(err);
     }
-
-    console.log('server started on port 3000')
+    console.log('server started on port 8000')
 });
 

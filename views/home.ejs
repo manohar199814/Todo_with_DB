@@ -10,68 +10,58 @@
 </head>
 <body>
     <h1> <%= title %></h1>
-        <form action="/" method="POST">
-            <div class="wrapper">
-                <div class="desc">
-                    <label for="desc">DESCRIPTION</label>
-                    <input type="text" name="desc" id="desc" placeholder="What do you need to do?" required>
-                </div>
-                <div class="category">
-                    <label for="category">CATEGGORY</label>
-                    <select name="pets" id="category">
-                        <option value="">Choose a Category</option>
-                        <option value="personal">Personal</option>
-                        <option value="home">Home</option>
-                        <option value="work">Work</option>
-                        <option value="cleaning">Cleaning</option>
-                        <option value="school">School</option>
-                        <option value="office">Office</option>
-                    </select>
-                </div>
-                <div class="duedate">
-                    <label for="duedate">DUE DATE:</label>
-                    <input type="date" id="duedate" name="duedate" placeholder="dd/mm/yyyy" required>
-                </div>
+    <!-- from to take input -->
+    <form action="/" method="POST">
+        <div class="wrapper">
+            <div class="desc">
+                <label for="desc">DESCRIPTION</label>
+                <input type="text" name="desc" id="desc" placeholder="What do you need to do?" required>
             </div>
-
-            <div class="add-task">
-                <button type="submit"><i class="fa-sharp fa-solid fa-plus"></i> Add Task</button>
+            <div class="category">
+                <label for="category">CATEGGORY</label>
+                <select name="category" id="category">
+                    <option value="">Choose a Category</option>
+                    <option value="personal">Personal</option>
+                    <option value="home">Home</option>
+                    <option value="work">Work</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="school">School</option>
+                    <option value="office">Office</option>
+                </select>
             </div>
-        </form>
+            <div class="duedate">
+                <label for="duedate">DUE DATE:</label>
+                <input type="date" id="duedate" name="duedate" placeholder="dd/mm/yyyy" required>
+            </div>
+        </div>
+        <div class="add-task">
+            <button type="submit"><i class="fa-sharp fa-solid fa-plus"></i> Add Task</button>
+        </div>
+    </form>    
 
+    <!-- list of to dos -->
     <ul id="list">
-        <li>
-            <div class="list-desc">
-                <input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
-                <label for="task1">Buy groceries</label>
-                <i class="fa-solid fa-calendar-days calender-icon"> 2022-01-02</i>
-            </div>
-            <div class="list-label"> 
-                Personal
-            </div>
-            <!-- <img src="../trash.svg" class="delete" data-id="12" /> -->
-
-            <div>
-                <i class="fa-solid fa-trash" class="delete"></i>
-            </div>
-        </li>
-
-        <li>
-            <div class="list-desc">
-                <input type="checkbox" id="task2" data-id="12" class="custom-checkbox">
-                <label for="task2">Buy groceries</label>
-                <i class="fa-solid fa-calendar-days calender-icon"> 2022-01-02</i>
-            </div>
-            <div class="list-label"> 
-                Personal
-            </div>
-            <!-- <img src="../trash.svg" class="delete" data-id="12" /> -->
-            
-            <div class="list-delete">
-                <i class="fa-solid fa-trash" class="delete"></i>
-            </div>   
-          </li>
+        <% if (todoItems.length > 0 ) {  %>
+        <% for(i=0;i< todoItems.length; i++ ) { %>
+            <li>
+                <div class="list-desc">
+                    <input type="checkbox" id="<%= todoItems[i]._id %>" class="custom-checkbox" <%= todoItems[i].checked ? 'checked' : "" %>>
+                    <label for="<%= todoItems[i]._id %>"> <%= todoItems[i].desc %></label>
+                    <i class="fa-solid fa-calendar-days calender-icon"> <%= todoItems[i].duedate %> </i>
+                </div>
+                <% if (todoItems[i].category) { %>
+                <div class="list-label"> 
+                    <%= todoItems[i].category %>
+                </div>
+                <%  } %>
+                <div>
+                    <a href="/delete?_id=<%= todoItems[i]._id%>"> <i class="fa-solid fa-trash" class="delete"></i></a>
+                </div>
+            </li>
+        <%  } %>    
+        <% } %>        
       </ul>
+      <script src="/js/static.js"></script>
 </body>
 </html>
 

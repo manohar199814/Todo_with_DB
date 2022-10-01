@@ -5,7 +5,6 @@
 
 body{
     margin:0;
-    /* box-sizing: border-box; */
 }
 
 h1{
@@ -30,21 +29,18 @@ label{
 .desc{
     width:100%;
     border: 1px solid grey;
-    /* box-sizing: border-box; */
     padding: 0.5rem 0 1rem 0;
 }
 
 .category{
     width:50%;
     border: 1px solid grey;
-    /* box-sizing: border-box; */
     padding: 0.5rem 0 1rem 0;
 }
 
 .duedate{
     width:50%;
     border: 1px solid grey;
-    /* box-sizing: border-box; */
     padding: 0.5rem 0 1rem 0;
 }
 
@@ -54,7 +50,6 @@ label{
 
 input[type="text"],input[type="date"]{
     width:100%;
-    /* box-sizing: border-box; */
     background-color: transparent;
     color:grey;
     border:none;   
@@ -102,17 +97,15 @@ input:-webkit-autofill:active{
     box-shadow: 0 0 0 30px lightgray inset !important;
 }
 
-
+/* list of to dos */
 ul {
     list-style-type: none;
     padding: 0;
     width:50%;
     margin:1.5rem auto;
-    /* border: 1px solid #e5e5e5; */
 }
 ul li {
     padding: 10px;
-    /* padding-left: 0; */
     display: flex;
     justify-content: space-between;
     align-items: inherit;
@@ -198,5 +191,7 @@ ul li:hover {
 .list-label{
     background-color: violet;
     padding: 0.5rem;
+    width:12%;
+    text-align: center;
     color: #E94560;
 }
